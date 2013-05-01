@@ -21,9 +21,10 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.session());
-
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'),{ redirect : false }));
 app.use(app.router);
+
+
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -34,6 +35,7 @@ app.get('/partials/:name', routes.partials);
 //app.get('/users', user.list);
 
 app.post('/api/login', routes.login);
+app.post('/api/logout', routes.logout);
 
 app.get('*', routes.index);
 

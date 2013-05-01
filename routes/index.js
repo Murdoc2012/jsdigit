@@ -12,9 +12,12 @@ exports.partials = function (req, res) {
   console.log('user: ' + req.session.username);
   var loggedIn = req.session.username !== undefined;
   console.log(loggedIn);
+  console.log(name);
   if (name === 'admin' && !loggedIn) {
 	  // login required:	  
 	  res.render('partials/login');
+	  //console.log(res.redirect('/'));
+	  //res.redirect('partials/login');
   }
   else {
 	  res.render('partials/' + name);

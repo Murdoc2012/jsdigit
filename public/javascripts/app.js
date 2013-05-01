@@ -7,6 +7,7 @@ angular.module('jsDigit', ['jsDigit.filters', 'jsDigit.services', 'jsDigit.direc
     $routeProvider.when('/home', {templateUrl: 'partials/home', controller: HomeCtrl});
     $routeProvider.when('/admin', {templateUrl: 'partials/admin', controller: AdminCtrl});
     $routeProvider.when('/viewer', {templateUrl: 'partials/viewer', controller: ViewerCtrl});
+    $routeProvider.when('/login', {templateUrl: 'partials/login', controller: LoginCtrl});
     $routeProvider.otherwise({redirectTo: '/home'});
     $locationProvider.html5Mode(true);
   }]);
