@@ -9,5 +9,12 @@ exports.index = function(req, res){
 
 exports.partials = function (req, res) {
   var name = req.params.name;
-  res.render('partials/' + name);
+  var notLoggedIn = true; // dummy
+  if (name === 'admin' && notLoggedIn) {
+	  // login required:
+	  res.render('partials/login');
+  }
+  else {
+	  res.render('partials/' + name);
+  }
 };
